@@ -38,7 +38,7 @@ const powWinnerIncrementInterval = 50
 // Check number of miner peers, and adjust pow winners accordingly.
 // Use number of accounts to approximate miner peers.
 func maybeAdjustPowWinners() {
-  numAccounts := len(BlockchainInstance.LastBlock().Accounts)
+  numAccounts := len(BlockchainInstance.Accounts)
   if numAccounts <= 2 {
 	BlockchainInstance.NumPowWinners = 1
   } else {
@@ -49,6 +49,7 @@ func maybeAdjustPowWinners() {
 // pickWinner creates a lottery pool of validators and chooses the validator who gets to forge a block to the blockchain
 // by random selecting from the pool, weighted by amount of tokens staked
 func pickWinner() {
+	// This sleep number if not set properly, may even cause deadlock.
 	time.Sleep(1 * time.Second)
 	mutex.Lock()
 	temp := tempBlocks
