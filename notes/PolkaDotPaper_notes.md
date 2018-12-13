@@ -52,4 +52,8 @@ Staking contract
 *   The reward needs to large enough to make validation process worthwhile, but not so large to be subject to attacks that force validators misbehaving.
 *   In cases that validators cannot validate each other, e.g. multi forks, fishermen come to support.
 
+Parachain registry
+*   New parachain addition needs a hard fork now for validation, and full referendum (e.g. 2/3) voting
+*   Suspension of parachain via dynamic validator voting.
+*   Removal of parachain via full referendum voting.
 
