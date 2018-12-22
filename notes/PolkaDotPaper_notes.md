@@ -45,15 +45,21 @@ Polkadot’s relay-chain itself will probably exist as an Ethereum-like accounts
 *   If implemented with EVM, need to be implemented as built in contracts.
 *   If implemented with WASM, no need to do that.
 
-Staking contract
+**Staking contract**
 *   Used for managing validators.
 *   To remain stake token liquidity, not all tokens are staked.
 *   Nominating validators via approval voting. 
 *   The reward needs to large enough to make validation process worthwhile, but not so large to be subject to attacks that force validators misbehaving.
 *   In cases that validators cannot validate each other, e.g. multi forks, fishermen come to support.
 
-Parachain registry
+**Parachain registry**
 *   New parachain addition needs a hard fork now for validation, and full referendum (e.g. 2/3) voting
 *   Suspension of parachain via dynamic validator voting.
 *   Removal of parachain via full referendum voting.
+
+**Sealing relay chain blocks**
+*   Each participant has signed votes info of other participants re. availability and validity of blocks.
+*   ⅔ validators vote for validity. ⅓ validators vote for availability.
+*   For performance, chains can grow (along with the original chain validator set), whereas the participants can remain at the least sub-linear.
+*   Weight parachain blocks. Avoid over-weight blocks via 1) validators publishing performance data on blocks, and 2) collator insurance with funds or block proposing success history.
 
